@@ -4,32 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WarmCore - 从入睡到天亮，都刚刚好</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 自定义配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warmcore': {
+                            'blue': '#4169E1',
+                            'deep-blue': '#1a1f3a',
+                            'black': '#0a0a0a',
+                        }
+                    },
+                    fontFamily: {
+                        'blue-sky': ['"Blue Sky Noto"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义样式（字体、动画等） -->
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-warmcore-black text-white overflow-x-hidden">
     <!-- 深蓝光影背景 -->
-    <div class="dream-background">
-        <div class="floating-shapes">
-            <div class="shape shape-1"></div>
-            <div class="shape shape-2"></div>
-            <div class="shape shape-3"></div>
-        </div>
-    </div>
+    <div class="dream-background"></div>
     
     <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">WarmCore</span>
+    <nav class="navbar fixed w-full top-0 z-50 transition-all duration-300">
+        <div class="max-w-[1600px] mx-auto px-8 py-6 flex items-center justify-between">
+            <div class="text-2xl font-blue-sky font-bold tracking-wider">
+                <span class="logo-text bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">WarmCore</span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#principle">原理</a></li>
-                <li><a href="#products">产品</a></li>
-                <li><a href="#about">关于我们</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact">联系我们</a></li>
+            <ul class="flex gap-12 text-sm font-light tracking-wide">
+                <li><a href="#home" class="hover:text-warmcore-blue transition-colors duration-300">首页</a></li>
+                <li><a href="#principle" class="hover:text-warmcore-blue transition-colors duration-300">原理</a></li>
+                <li><a href="#products" class="hover:text-warmcore-blue transition-colors duration-300">产品</a></li>
+                <li><a href="#about" class="hover:text-warmcore-blue transition-colors duration-300">关于我们</a></li>
+                <li><a href="#faq" class="hover:text-warmcore-blue transition-colors duration-300">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-warmcore-blue transition-colors duration-300">联系我们</a></li>
             </ul>
         </div>
     </nav>
@@ -37,8 +56,9 @@
     <!-- 主页面 -->
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
+        <section id="home" class="hero relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
             <div class="hero-particles" id="hero-particles"></div>
+            
             <!-- 多个流动光晕 -->
             <div class="glow-orb glow-orb-1"></div>
             <div class="glow-orb glow-orb-2"></div>
@@ -50,293 +70,292 @@
             <div class="glow-orb glow-orb-8"></div>
             <div class="glow-orb glow-orb-9"></div>
             <div class="glow-orb glow-orb-10"></div>
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="title-main">WarmCore实验室</span>
-                        <span class="title-sub">从入睡到天亮，都刚刚好</span>
+            
+            <div class="max-w-[1600px] mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+                <div class="text-left pl-12">
+                    <h1 class="hero-title font-blue-sky font-normal leading-tight tracking-tight">
+                        <span class="title-main block text-[4rem] bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">WarmCore实验室</span>
+                        <span class="title-sub block text-[2rem] mt-4 text-white">从入睡到天亮，都刚刚好</span>
                     </h1>
-                    <div class="hero-action">
-                        <button class="btn-primary">探索产品</button>
+                    <div class="mt-12">
+                        <button class="btn-primary px-12 py-4 bg-warmcore-blue/10 backdrop-blur-xl border border-warmcore-blue/30 rounded-full text-white font-light tracking-wide hover:bg-warmcore-blue/20 transition-all duration-300">探索产品</button>
                     </div>
                 </div>
                 
-                <div class="hero-image">
-                    <div class="product-display">
-                        <div class="device-mockup">
-                            <div class="device-glow"></div>
-                        </div>
+                <div class="flex justify-center items-center">
+                    <div class="product-display relative">
+                        <div class="device-mockup"></div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 产品展示 Section 1 -->
-        <section class="product-intro product-intro-1">
-            <div class="intro-content">
-                <div class="intro-image intro-image-fade-right">
-                    <img src="assets/images/product-comfort.png" alt="整夜恰好的温度" />
+        <section class="w-full py-0 my-0">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center">
+                <div class="intro-image-fade-right relative">
+                    <img src="assets/images/product-comfort.png" alt="整夜恰好的温度" class="w-full h-auto object-cover" />
                 </div>
-                <div class="intro-text">
-                    <h2>整夜恰好的温度，<br>少打扰的深睡体验。</h2>
+                <div class="flex items-center justify-start px-16 py-12">
+                    <h2 class="text-4xl font-blue-sky font-light leading-relaxed tracking-wide">整夜恰好的温度，<br>少打扰的深睡体验。</h2>
                 </div>
             </div>
         </section>
 
         <!-- 产品展示 Section 2 -->
-        <section class="product-intro product-intro-reverse">
-            <div class="intro-content">
-                <div class="intro-text">
-                    <h2>前所未有的舒适体感，<br>睡眠新科技。</h2>
+        <section class="w-full py-0 my-20">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 items-center relative">
+                <div class="intro-text-box absolute left-1/2 top-1/2 -translate-y-1/2 w-1/2 flex items-center justify-center z-10">
+                    <div class="bg-black/60 py-8 px-12 flex items-center justify-center">
+                        <h2 class="text-[1.75rem] font-blue-sky font-light leading-relaxed tracking-wide">前所未有的舒适体感，<br>睡眠新科技。</h2>
+                    </div>
                 </div>
-                <div class="intro-image">
-                    <img src="assets/images/product-technology.png" alt="睡眠新科技" />
+                <div class="col-span-2">
+                    <div class="relative w-full" style="padding-bottom: 50%;">
+                        <img src="assets/images/product-technology.png" alt="睡眠新科技" class="absolute top-0 left-0 w-full h-full object-cover" style="object-position: center 75%;" />
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Dyson风格产品展示区域 -->
         <!-- Section 1: 精准温控 -->
-        <section class="dyson-section dyson-dark">
-            <div class="dyson-content">
-                <div class="dyson-text-top">
-                    <h2>所设即所得，温度从未如此精准</h2>
+        <section class="dyson-section min-h-screen bg-black flex items-center justify-center py-16 px-8">
+            <div class="max-w-[1600px] mx-auto w-full">
+                <div class="dyson-text-top text-center mb-12 opacity-0 translate-y-8 transition-all duration-800">
+                    <h2 class="text-4xl font-blue-sky font-light leading-normal tracking-wide bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">所设即所得，温度从未如此精准</h2>
                 </div>
-                <div class="dyson-images dyson-grid-2">
-                    <img src="assets/images/image (1).png" alt="600M睡眠数据分析" class="dyson-img-grid">
-                    <img src="assets/images/image (2).png" alt="温度曲线图" class="dyson-img-grid">
+                <div class="grid grid-cols-2 gap-0 w-[85%] mx-auto">
+                    <img src="assets/images/image (1).png" alt="600M睡眠数据分析" class="w-full h-full object-cover">
+                    <img src="assets/images/image (2).png" alt="温度曲线图" class="w-full h-full object-cover">
                 </div>
             </div>
         </section>
 
         <!-- Section 2: 均匀温场 -->
-        <section class="dyson-section dyson-dark section-temperature">
-            <div class="dyson-content">
-                <div class="dyson-text-top">
-                    <h2>均匀温场，温润不燥</h2>
+        <section class="section-temperature min-h-screen bg-black flex items-center justify-center py-16 px-8">
+            <div class="max-w-[1600px] mx-auto w-full">
+                <div class="dyson-text-top text-center mb-12 opacity-0 translate-y-8 transition-all duration-800">
+                    <h2 class="text-4xl font-blue-sky font-light leading-normal tracking-wide bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">均匀温场，温润不燥</h2>
                 </div>
-                <div class="dyson-images">
-                    <img src="assets/images/微信图片_20251109175535_2881_194.png" alt="舒适睡眠场景" class="dyson-img-large">
+                <div class="relative w-full" style="padding-bottom: 56.25%;">
+                    <img src="assets/images/微信图片_20251109175535_2881_194.png" alt="舒适睡眠场景" class="absolute top-0 left-0 w-full h-full object-cover" style="object-position: center 75%;">
                 </div>
             </div>
         </section>
 
         <!-- Section 3: 独立分区控温 -->
-        <section class="dyson-section dyson-dark section-zone-control">
-            <div class="dyson-content dyson-split">
-                <div class="dyson-left">
-                    <h2>独立分区控温：两个人各睡各的"恰好"，<br>不用迁就，这次只为自己</h2>
-                </div>
-                <div class="dyson-right">
-                    <img src="assets/images/image (7).png" alt="双人分区控温" class="dyson-img-half">
+        <section class="section-zone-control min-h-screen bg-black flex items-center justify-center py-16 px-8">
+            <div class="max-w-[1600px] mx-auto w-full">
+                <div class="grid grid-cols-[45%_55%] gap-0 items-start">
+                    <div class="dyson-left px-12 pl-24 opacity-0 translate-y-8 transition-all duration-800">
+                        <h2 class="text-3xl font-blue-sky font-light leading-normal tracking-wide mb-8 bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">独立分区控温：两个人各睡各的"恰好"，<br>不用迁就，这次只为自己</h2>
+                    </div>
+                    <div class="dyson-right flex justify-start items-start pr-16 opacity-0 translate-y-8 transition-all duration-800 delay-200">
+                        <img src="assets/images/image (7).png" alt="双人分区控温" class="w-full max-w-[650px]">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- Section 4: 智能算法 -->
-        <section class="dyson-section dyson-dark">
-            <div class="dyson-content dyson-split">
-                <div class="dyson-left">
-                    <h2>独立分区控温：两个人各睡各的"恰好"，<br>舒适和不同</h2>
-                    <p>智能算法，深睡更容易：</p>
-                    <img src="assets/images/image (4).png" alt="温控算法" class="dyson-img-half">
-                </div>
-                <div class="dyson-right">
-                    <img src="assets/images/image (5).png" alt="智能App" class="dyson-img-half">
+        <section class="min-h-screen bg-black flex items-center justify-center py-16 px-8">
+            <div class="max-w-[1600px] mx-auto w-full">
+                <div class="grid grid-cols-[45%_55%] gap-0 items-start">
+                    <div class="dyson-left px-12 opacity-0 translate-y-8 transition-all duration-800">
+                        <h2 class="text-3xl font-blue-sky font-light leading-normal tracking-wide mb-8 bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">独立分区控温：两个人各睡各的"恰好"，<br>舒适和不同</h2>
+                        <p class="text-xl text-white/70 font-light mb-12">智能算法，深睡更容易：</p>
+                        <img src="assets/images/image (5).png" alt="智能App" class="w-full">
+                    </div>
+                    <div class="dyson-right flex justify-end items-start pr-8 opacity-0 translate-y-8 transition-all duration-800 delay-200">
+                        <img src="assets/images/image (4).png" alt="温控算法" class="w-[90%] max-w-[600px]">
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 核心特性 -->
-        <section class="features-section">
-            <div class="container">
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <div class="icon-circle"></div>
+        <section class="py-32 px-8">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <h3>所设即所得</h3>
-                        <p>温度从未如此精准</p>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">所设即所得</h3>
+                        <p class="text-white/60 text-sm font-light">温度从未如此精准</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <div class="icon-circle"></div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <h3>独立分区控温</h3>
-                        <p>两个人各睡各的"恰好"</p>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">独立分区控温</h3>
+                        <p class="text-white/60 text-sm font-light">两个人各睡各的"恰好"</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <div class="icon-circle"></div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <h3>智能算法</h3>
-                        <p>深睡更容易</p>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">智能算法</h3>
+                        <p class="text-white/60 text-sm font-light">深睡更容易</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <div class="icon-circle"></div>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <h3>无感唤醒</h3>
-                        <p>像从云里慢慢醒来</p>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">无感唤醒</h3>
+                        <p class="text-white/60 text-sm font-light">像从云里慢慢醒来</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 原理介绍 -->
-        <section id="principle" class="principle">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">GMET技术</h2>
-                    <p class="section-subtitle">创新科技，重新定义睡眠温度</p>
+        <section id="principle" class="py-32 px-8">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl font-blue-sky font-light mb-6 tracking-wide">GMET技术</h2>
+                    <p class="text-xl text-white/60 font-light">创新科技，重新定义睡眠温度</p>
                 </div>
-                <div class="principle-content">
-                    <div class="principle-grid">
-                        <div class="principle-card">
-                            <h3>均匀温场，温润不燥</h3>
-                            <p>所设即所得，温度从未如此精准</p>
-                        </div>
-                        <div class="principle-card">
-                            <h3>智能调温</h3>
-                            <p>根据睡眠节律与状态智能调温，只属于你的私人深睡眠助手</p>
-                        </div>
-                        <div class="principle-card">
-                            <h3>无感0噪音</h3>
-                            <p>无风声、无马达、静到察觉不到</p>
-                        </div>
-                        <div class="principle-card">
-                            <h3>贴身级安全</h3>
-                            <p>贴身用电，低压直流才安全</p>
-                        </div>
-                        <div class="principle-card">
-                            <h3>采用非晶材料</h3>
-                            <p>久用不脆裂，科学验证更安心</p>
-                        </div>
-                        <div class="principle-card">
-                            <h3>远红外发热</h3>
-                            <p>呵护皮肤减少刺激</p>
-                        </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">均匀温场，温润不燥</h3>
+                        <p class="text-white/60 font-light leading-relaxed">所设即所得，温度从未如此精准</p>
+                    </div>
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">智能调温</h3>
+                        <p class="text-white/60 font-light leading-relaxed">根据睡眠节律与状态智能调温，只属于你的私人深睡眠助手</p>
+                    </div>
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">无感0噪音</h3>
+                        <p class="text-white/60 font-light leading-relaxed">无风声、无马达、静到察觉不到</p>
+                    </div>
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">贴身级安全</h3>
+                        <p class="text-white/60 font-light leading-relaxed">贴身用电，低压直流才安全</p>
+                    </div>
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">采用非晶材料</h3>
+                        <p class="text-white/60 font-light leading-relaxed">久用不脆裂，科学验证更安心</p>
+                    </div>
+                    <div class="p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:bg-white/10 transition-all duration-300">
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">远红外发热</h3>
+                        <p class="text-white/60 font-light leading-relaxed">呵护皮肤减少刺激</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 产品展示 -->
-        <section id="products" class="products">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">产品系列</h2>
-                    <p class="section-subtitle">不用做复杂攻略，睡好觉的事情就交给我们了</p>
+        <section id="products" class="py-32 px-8">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="text-center mb-20">
+                    <h2 class="text-5xl font-blue-sky font-light mb-6 tracking-wide">产品系列</h2>
+                    <p class="text-xl text-white/60 font-light">不用做复杂攻略，睡好觉的事情就交给我们了</p>
                 </div>
-                <div class="products-showcase">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-badge">Pro 3.0</div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="group p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 hover:bg-white/10 transition-all duration-300">
+                        <div class="aspect-square bg-gradient-to-br from-warmcore-blue/20 to-transparent rounded-2xl mb-8 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 px-4 py-2 bg-warmcore-blue/30 backdrop-blur-xl rounded-full text-sm font-light">Pro 3.0</div>
                         </div>
-                        <h3>智能深睡毯 Pro 3.0</h3>
-                        <p>包含手机app智能控制，睡眠监测等功能</p>
-                        <button class="btn-product">了解更多</button>
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">智能深睡毯 Pro 3.0</h3>
+                        <p class="text-white/60 font-light mb-8 leading-relaxed">包含手机app智能控制，睡眠监测等功能</p>
+                        <button class="w-full py-4 bg-warmcore-blue/10 backdrop-blur-xl border border-warmcore-blue/30 rounded-full text-white font-light hover:bg-warmcore-blue/20 transition-all duration-300">了解更多</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-badge">Lite</div>
+                    <div class="group p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 hover:bg-white/10 transition-all duration-300">
+                        <div class="aspect-square bg-gradient-to-br from-warmcore-blue/20 to-transparent rounded-2xl mb-8 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 px-4 py-2 bg-warmcore-blue/30 backdrop-blur-xl rounded-full text-sm font-light">Lite</div>
                         </div>
-                        <h3>智能深睡毯 Lite</h3>
-                        <p>经济实用，专注核心温控功能</p>
-                        <button class="btn-product">了解更多</button>
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">智能深睡毯 Lite</h3>
+                        <p class="text-white/60 font-light mb-8 leading-relaxed">经济实用，专注核心温控功能</p>
+                        <button class="w-full py-4 bg-warmcore-blue/10 backdrop-blur-xl border border-warmcore-blue/30 rounded-full text-white font-light hover:bg-warmcore-blue/20 transition-all duration-300">了解更多</button>
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-badge">Warm</div>
+                    <div class="group p-8 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 hover:border-warmcore-blue/30 hover:bg-white/10 transition-all duration-300">
+                        <div class="aspect-square bg-gradient-to-br from-warmcore-blue/20 to-transparent rounded-2xl mb-8 flex items-center justify-center relative overflow-hidden">
+                            <div class="absolute top-4 right-4 px-4 py-2 bg-warmcore-blue/30 backdrop-blur-xl rounded-full text-sm font-light">Warm</div>
                         </div>
-                        <h3>暖睡毯</h3>
-                        <p>舒适保暖，简单易用</p>
-                        <button class="btn-product">了解更多</button>
+                        <h3 class="text-2xl font-blue-sky font-light mb-4">暖睡毯</h3>
+                        <p class="text-white/60 font-light mb-8 leading-relaxed">舒适保暖，简单易用</p>
+                        <button class="w-full py-4 bg-warmcore-blue/10 backdrop-blur-xl border border-warmcore-blue/30 rounded-full text-white font-light hover:bg-warmcore-blue/20 transition-all duration-300">了解更多</button>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 测试验证 -->
-        <section class="testing">
-            <div class="container">
-                <h2 class="section-title">严苛实测，你的担忧我们都考虑到了</h2>
-                <div class="testing-grid">
-                    <div class="test-item">
-                        <div class="test-icon">✓</div>
-                        <p>可水洗</p>
+        <section class="py-32 px-8">
+            <div class="max-w-[1400px] mx-auto">
+                <h2 class="text-4xl font-blue-sky font-light text-center mb-16 tracking-wide">严苛实测，你的担忧我们都考虑到了</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-2xl">
+                        <div class="text-4xl text-warmcore-blue mb-4">✓</div>
+                        <p class="text-lg font-light">可水洗</p>
                     </div>
-                    <div class="test-item">
-                        <div class="test-icon">✓</div>
-                        <p>可除螨</p>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-2xl">
+                        <div class="text-4xl text-warmcore-blue mb-4">✓</div>
+                        <p class="text-lg font-light">可除螨</p>
                     </div>
-                    <div class="test-item">
-                        <div class="test-icon">✓</div>
-                        <p>抗弯折</p>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-2xl">
+                        <div class="text-4xl text-warmcore-blue mb-4">✓</div>
+                        <p class="text-lg font-light">抗弯折</p>
                     </div>
-                    <div class="test-item">
-                        <div class="test-icon">✓</div>
-                        <p>能烘干</p>
+                    <div class="text-center p-8 bg-white/5 backdrop-blur-xl rounded-2xl">
+                        <div class="text-4xl text-warmcore-blue mb-4">✓</div>
+                        <p class="text-lg font-light">能烘干</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- 品牌理念 -->
-        <section class="brand-philosophy">
-            <div class="container">
-                <div class="philosophy-content">
-                    <h2>睡好不是终点，是起点</h2>
-                    <p>优质睡眠不仅是睡得好，也能带来好的生活</p>
-                </div>
+        <section class="py-40 px-8 text-center">
+            <div class="max-w-[1000px] mx-auto">
+                <h2 class="text-6xl font-blue-sky font-light mb-8 tracking-wide bg-gradient-to-r from-white via-warmcore-blue to-white bg-clip-text text-transparent">睡好不是终点，是起点</h2>
+                <p class="text-2xl text-white/60 font-light leading-relaxed">优质睡眠不仅是睡得好，也能带来好的生活</p>
             </div>
         </section>
 
         <!-- 关于我们 -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-content">
-                    <h2 class="section-title">关于WarmCore</h2>
-                    <p class="section-description">
-                        我们是一家专注于睡眠科技的创新公司，<br>
-                        通过GMET技术，为您创造完美的睡眠温度环境。
-                    </p>
-                    <div class="about-link">
-                        <a href="#" class="link-button">WarmCore实验室</a>
-                    </div>
-                </div>
+        <section id="about" class="py-32 px-8">
+            <div class="max-w-[1000px] mx-auto text-center">
+                <h2 class="text-5xl font-blue-sky font-light mb-8 tracking-wide">关于WarmCore</h2>
+                <p class="text-xl text-white/70 font-light leading-relaxed mb-12">
+                    我们是一家专注于睡眠科技的创新公司，<br>
+                    通过GMET技术，为您创造完美的睡眠温度环境。
+                </p>
+                <a href="#" class="inline-block px-10 py-4 bg-warmcore-blue/10 backdrop-blur-xl border border-warmcore-blue/30 rounded-full text-white font-light hover:bg-warmcore-blue/20 transition-all duration-300">WarmCore实验室</a>
             </div>
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="faq">
-            <div class="container">
-                <h2 class="section-title">常见问题</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>产品安全吗？</h3>
-                            <span class="faq-icon">+</span>
+        <section id="faq" class="py-32 px-8">
+            <div class="max-w-[1000px] mx-auto">
+                <h2 class="text-5xl font-blue-sky font-light text-center mb-16 tracking-wide">常见问题</h2>
+                <div class="space-y-6">
+                    <div class="faq-item p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-blue-sky font-light">产品安全吗？</h3>
+                            <span class="faq-icon text-2xl text-warmcore-blue">+</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer mt-4 text-white/60 font-light leading-relaxed hidden">
                             <p>采用低压直流供电，贴身使用完全安全，通过多项国际安全认证。</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>如何清洗保养？</h3>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-blue-sky font-light">如何清洗保养？</h3>
+                            <span class="faq-icon text-2xl text-warmcore-blue">+</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer mt-4 text-white/60 font-light leading-relaxed hidden">
                             <p>支持水洗和烘干，日常保养非常方便。</p>
                         </div>
                     </div>
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>Pro 3.0和Lite有什么区别？</h3>
-                            <span class="faq-icon">+</span>
+                    <div class="faq-item p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 hover:border-warmcore-blue/30 transition-all duration-300 cursor-pointer">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-blue-sky font-light">Pro 3.0和Lite有什么区别？</h3>
+                            <span class="faq-icon text-2xl text-warmcore-blue">+</span>
                         </div>
-                        <div class="faq-answer">
+                        <div class="faq-answer mt-4 text-white/60 font-light leading-relaxed hidden">
                             <p>Pro 3.0支持手机app智能控制和睡眠监测，Lite版本专注核心温控功能。</p>
                         </div>
                     </div>
@@ -345,39 +364,33 @@
         </section>
 
         <!-- 联系我们 -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-content">
-                    <h2 class="section-title">联系我们</h2>
-                    <p class="section-subtitle">有任何问题？我们随时为您服务</p>
-                    <div class="contact-grid">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <div class="contact-icon-circle"></div>
-                            </div>
-                            <div class="contact-details">
-                                <h3>邮箱</h3>
-                                <p>hello@warmcore.com</p>
-                            </div>
+        <section id="contact" class="py-32 px-8">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-5xl font-blue-sky font-light mb-6 tracking-wide">联系我们</h2>
+                    <p class="text-xl text-white/60 font-light">有任何问题？我们随时为您服务</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                    <div class="text-center p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <div class="contact-icon-circle"></div>
-                            </div>
-                            <div class="contact-details">
-                                <h3>电话</h3>
-                                <p>400-888-8888</p>
-                            </div>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">邮箱</h3>
+                        <p class="text-white/60 font-light">hello@warmcore.com</p>
+                    </div>
+                    <div class="text-center p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <div class="contact-icon-circle"></div>
-                            </div>
-                            <div class="contact-details">
-                                <h3>地址</h3>
-                                <p>上海市静安区南京西路</p>
-                            </div>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">电话</h3>
+                        <p class="text-white/60 font-light">400-888-8888</p>
+                    </div>
+                    <div class="text-center p-10 bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10">
+                        <div class="w-16 h-16 mx-auto mb-6 rounded-full bg-warmcore-blue/10 backdrop-blur-xl flex items-center justify-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-warmcore-blue to-white"></div>
                         </div>
+                        <h3 class="text-xl font-blue-sky font-light mb-3">地址</h3>
+                        <p class="text-white/60 font-light">上海市静安区南京西路</p>
                     </div>
                 </div>
             </div>
@@ -385,13 +398,9 @@
     </main>
 
     <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-text">
-                    <p>&copy; 2024 WarmCore. 让睡眠成为艺术</p>
-                </div>
-            </div>
+    <footer class="py-12 px-8 border-t border-white/10">
+        <div class="max-w-[1400px] mx-auto text-center">
+            <p class="text-white/50 font-light">&copy; 2024 WarmCore. 让睡眠成为艺术</p>
         </div>
     </footer>
 
