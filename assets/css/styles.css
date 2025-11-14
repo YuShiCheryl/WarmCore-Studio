@@ -114,11 +114,11 @@
     height: 100%;
 }
 
-/* 流动光晕 */
+/* 流动光晕 - 更亮 */
 .glow-orb {
     position: absolute;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(65, 105, 225, 0.4) 0%, rgba(65, 105, 225, 0.1) 40%, transparent 70%);
+    background: radial-gradient(circle, rgba(65, 105, 225, 0.7) 0%, rgba(65, 105, 225, 0.3) 40%, transparent 70%);
     filter: blur(40px);
     pointer-events: none;
     mix-blend-mode: screen;
@@ -324,4 +324,37 @@
 
 .faq-icon {
     transition: transform 0.3s ease;
+}
+
+/* ==========================================
+   文字出现动效
+   ========================================== */
+
+/* Hero标题动效 - 平滑淡入 */
+.hero-title {
+    opacity: 0 !important;
+    transition: opacity 0.8s ease-out !important;
+}
+
+.hero-action {
+    opacity: 0 !important;
+    transition: opacity 1.2s ease-out !important;
+}
+
+.hero-title.animate-in {
+    opacity: 1 !important;
+}
+
+.hero-action.animate-in {
+    opacity: 1 !important;
+}
+
+/* Section文字动效 */
+.text-animate {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.text-animate.visible {
+    opacity: 1 !important;
 }

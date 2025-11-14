@@ -282,6 +282,23 @@ class PageLoadAnimation {
         setTimeout(() => {
             document.body.style.opacity = '1';
         }, 100);
+        
+        // Hero标题动效
+        this.animateHeroTitle();
+    }
+    
+    animateHeroTitle() {
+        const heroTitle = document.querySelector('.hero-title');
+        const heroAction = document.querySelector('.hero-action');
+        
+        // 延迟出现，依次动画
+        setTimeout(() => {
+            if (heroTitle) heroTitle.classList.add('animate-in');
+        }, 300);
+        
+        setTimeout(() => {
+            if (heroAction) heroAction.classList.add('animate-in');
+        }, 450);
     }
 }
 
@@ -320,6 +337,23 @@ document.addEventListener('DOMContentLoaded', () => {
     
     dysonElements.forEach(element => {
         dysonObserver.observe(element);
+    });
+    
+    // 启动通用文字动效
+    const textAnimateElements = document.querySelectorAll('.text-animate');
+    const textAnimateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -80px 0px'
+    });
+    
+    textAnimateElements.forEach(element => {
+        textAnimateObserver.observe(element);
     });
     
     // 添加CSS动画
